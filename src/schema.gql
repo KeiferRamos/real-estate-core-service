@@ -1,0 +1,109 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Amenities {
+  _id: String!
+  name: String!
+  image: String!
+}
+
+type Nearby {
+  _id: String!
+  name: String!
+  property_type: String!
+  images: [String!]!
+  location: String!
+}
+
+type PriceRange {
+  _id: String!
+  minimum: Float!
+  maximum: Float!
+}
+
+type Trademark {
+  title: String!
+  list: [String!]!
+}
+
+type TrademarkList {
+  images: [String!]!
+  list: [Trademark!]!
+}
+
+type Content {
+  title: String!
+  image: String!
+  content: String!
+  component: String!
+}
+
+type Property {
+  _id: String!
+  title: String!
+  location: String!
+  name: String!
+  property_type: String!
+  status: String!
+  images: [String!]!
+  description: String!
+  amenities: [Amenities!]!
+  nearby_properties: [Nearby!]
+  price_range: PriceRange!
+  trademarks: TrademarkList!
+  contents: [Content!]!
+}
+
+type Query {
+  properties: [Property!]!
+  property(id: String!): Property!
+}
+
+type Mutation {
+  createProperty(createPropertyInput: CreatePropertyInput!): Property!
+  removeProperty(id: String!): Property!
+}
+
+input CreatePropertyInput {
+  _id: String
+  title: String!
+  images: [String!]!
+  property_type: String!
+  name: String!
+  description: String!
+  location: String!
+  status: String!
+  amenities: [CreateAmenitiesInput!]!
+  nearby_properties: [String!]!
+  price_range: CreatePriceRangeInput!
+  trademarks: CreateTrademarkListInput!
+  contents: [CreateContentInput!]!
+}
+
+input CreateAmenitiesInput {
+  image: String!
+  name: String!
+}
+
+input CreatePriceRangeInput {
+  minimum: Float!
+  maximum: Float!
+}
+
+input CreateTrademarkListInput {
+  images: [String!]!
+  list: [CreateTrademarkInput!]!
+}
+
+input CreateTrademarkInput {
+  title: String!
+  list: [String!]!
+}
+
+input CreateContentInput {
+  title: String!
+  image: String!
+  content: String!
+  component: String!
+}
