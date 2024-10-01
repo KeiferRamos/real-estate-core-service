@@ -2,74 +2,108 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
-type Amenities {
-  _id: String!
-  name: String!
-  image: String!
-}
-
-type Nearby {
-  _id: String!
-  name: String!
-  property_type: String!
-  images: [String!]!
-  location: String!
-}
-
 type PriceRange {
-  _id: String!
+  id: String!
   minimum: Float!
   maximum: Float!
 }
 
-type Trademark {
+type Content {
+  id: String!
+  content_type: String!
+  banner: String!
   title: String!
+  description: String!
+}
+
+type Amenities {
+  id: String!
+  tag: String!
+  image: String!
+}
+
+type Establishment {
+  id: String!
+  tag: String!
   list: [String!]!
 }
 
-type TrademarkList {
-  images: [String!]!
-  list: [Trademark!]!
-}
-
-type Content {
-  title: String!
-  image: String!
-  content: String!
-  component: String!
-}
-
 type Property {
-  _id: String!
+  id: String!
   title: String!
-  location: String!
   name: String!
-  property_type: String!
-  status: String!
-  images: [String!]!
   description: String!
-  amenities: [Amenities!]!
-  nearby_properties: [Nearby!]
+  status: String!
+  location: String!
+  type: String!
   price_range: PriceRange!
-  trademarks: TrademarkList!
-  contents: [Content!]!
+  contents: [Content!]
+  nearby_properties: [Property!]
+  gallery: [String!]
+  amenities: [Amenities!]
+  establishments: [Establishment!]
+}
+
+type BlogContent {
+  id: String!
+  content_type: String!
+  gallery: [String!]
+  video: String
+  banner: String
+  title: String
+  description: String
+}
+
+type Blog {
+  id: String!
+  title: String!
+  description: String!
+  author: String!
+  date_created: String!
+  categories: [String!]!
+  banner: String!
+  blog_contents: [BlogContent!]!
+}
+
+type FullName {
+  id: String!
+  first_name: String!
+  last_name: String!
+  middle_name: String
+}
+
+type Admin {
+  id: String!
+  username: String!
+  password: String!
+  role: String!
+  full_name: FullName!
 }
 
 type Query {
   properties: [Property!]!
   property(id: String!): Property!
+  blogs: [Blog!]!
+  blog(id: String!): Blog!
+  admins: [Admin!]!
+  admin(id: String!): Admin!
 }
 
 type Mutation {
-  createProperty(createPropertyInput: CreatePropertyInput!): Property!
-  removeProperty(id: String!): Property!
+  createProperty(CreatePropertyInput: CreatePropertyInput!): Property!
+  deleteProperty(id: String!): String!
+  createBlog(createBlogInput: CreateBlogInput!): Blog!
+  removeBlog(id: String!): String!
+  createAdmin(createAdminInput: CreateAdminInput!): Admin!
+  signin(signinUserInput: SigninUserInput!): String!
+  removeAdmin(id: Int!): Admin!
 }
 
 input CreatePropertyInput {
-  _id: String
+  id: String
   title: String!
-  images: [String!]!
-  property_type: String!
+  gallery: [String!]!
+  type: String!
   name: String!
   description: String!
   location: String!
@@ -77,13 +111,13 @@ input CreatePropertyInput {
   amenities: [CreateAmenitiesInput!]!
   nearby_properties: [String!]!
   price_range: CreatePriceRangeInput!
-  trademarks: CreateTrademarkListInput!
+  establishments: [CreateEstablishmentInput!]!
   contents: [CreateContentInput!]!
 }
 
 input CreateAmenitiesInput {
   image: String!
-  name: String!
+  tag: String!
 }
 
 input CreatePriceRangeInput {
@@ -91,19 +125,55 @@ input CreatePriceRangeInput {
   maximum: Float!
 }
 
-input CreateTrademarkListInput {
-  images: [String!]!
-  list: [CreateTrademarkInput!]!
-}
-
-input CreateTrademarkInput {
-  title: String!
+input CreateEstablishmentInput {
   list: [String!]!
+  tag: String!
 }
 
 input CreateContentInput {
+  title: String
+  banner: String
+  gallery: [String!]
+  content_type: String
+  description: String
+}
+
+input CreateBlogInput {
+  id: String
   title: String!
-  image: String!
-  content: String!
-  component: String!
+  description: String!
+  author: String!
+  date_created: String!
+  categories: [String!]!
+  banner: String!
+  blog_contents: [CreateBlogContentInput!]!
+}
+
+input CreateBlogContentInput {
+  id: String
+  content_type: String!
+  gallery: [String!]
+  video: String
+  banner: String
+  title: String
+  description: String
+}
+
+input CreateAdminInput {
+  id: String
+  username: String!
+  password: String!
+  role: String!
+  full_name: CreateFullNameInput!
+}
+
+input CreateFullNameInput {
+  first_name: String!
+  last_name: String!
+  middle_name: String
+}
+
+input SigninUserInput {
+  username: String!
+  password: String!
 }

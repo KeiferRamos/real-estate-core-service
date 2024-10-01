@@ -1,22 +1,38 @@
 import { Field, ObjectType } from '@nestjs/graphql';
-import { Prop, Schema } from '@nestjs/mongoose';
+import {
+  Column,
+  Entity,
+  ManyToMany,
+  ManyToOne,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
+import { Property } from './property.entity';
 
+@Entity()
 @ObjectType()
-@Schema()
 export class Content {
-  @Prop()
+  @PrimaryGeneratedColumn('uuid')
+  @Field()
+  id: string;
+
+  @Column()
+  @Field()
+  content_type: string;
+
+  @Column()
+  @Field()
+  banner: string;
+
+  @Column()
   @Field()
   title: string;
 
-  @Prop()
+  @Column()
   @Field()
-  image: string;
+  description: string;
 
-  @Prop()
-  @Field()
-  content: string;
-
-  @Prop()
-  @Field()
-  component: string;
+  @ManyToOne(() => Property, (property) => property.contents, {
+    onDelete: 'CASCADE',
+  })
+  property: Property;
 }

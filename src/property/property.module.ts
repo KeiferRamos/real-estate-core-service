@@ -1,13 +1,27 @@
 import { Module } from '@nestjs/common';
 import { PropertyService } from './property.service';
 import { PropertyResolver } from './property.resolver';
-import { MongooseModule } from '@nestjs/mongoose';
-import { Property, PropertySchema } from './entities/property.entity';
+import { TypeOrmModule } from '@nestjs/typeorm';
+import { Property } from './entities/property.entity';
+import { PriceRange } from './entities/price_range.entity';
+import { Content } from './entities/content.entity';
+import { Amenities } from './entities/amenities.entity';
+import { Establishment } from './entities/establishment.entity';
+import { JwtModule } from '@nestjs/jwt';
+import { ConfigModule } from '@nestjs/config';
 
 @Module({
   imports: [
-    MongooseModule.forFeature([
-      { name: Property.name, schema: PropertySchema },
+    ConfigModule.forRoot({ isGlobal: true }),
+    JwtModule.register({
+      secret: process.env.SECRET,
+    }),
+    TypeOrmModule.forFeature([
+      Property,
+      PriceRange,
+      Content,
+      Amenities,
+      Establishment,
     ]),
   ],
   providers: [PropertyResolver, PropertyService],

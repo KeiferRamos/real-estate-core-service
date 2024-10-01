@@ -1,64 +1,90 @@
-import { ObjectType, Field } from '@nestjs/graphql';
-import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import { Amenities } from './amenities.entity';
-import { Nearby } from './nearby.entity';
-import { PriceRange } from './price.entity';
-import { TrademarkList } from './trademarks.entity';
+import { Field, ObjectType } from '@nestjs/graphql';
+import {
+  Column,
+  Entity,
+  JoinColumn,
+  JoinTable,
+  ManyToMany,
+  OneToMany,
+  OneToOne,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
+import { PriceRange } from './price_range.entity';
 import { Content } from './content.entity';
+import { Amenities } from './amenities.entity';
+import { Establishment } from './establishment.entity';
 
+@Entity()
 @ObjectType()
-@Schema()
 export class Property {
+  @PrimaryGeneratedColumn('uuid')
   @Field()
-  _id: string;
+  id: string;
 
-  @Prop()
+  @Column()
   @Field()
   title: string;
 
-  @Prop()
-  @Field()
-  location: string;
-
-  @Prop()
+  @Column()
   @Field()
   name: string;
 
-  @Prop()
-  @Field()
-  property_type: string;
-
-  @Prop()
-  @Field()
-  status: string;
-
-  @Prop()
-  @Field(() => [String])
-  images: string[];
-
-  @Prop()
+  @Column()
   @Field()
   description: string;
 
-  @Prop({ type: [{ type: Amenities, ref: Amenities.name }] })
-  @Field(() => [Amenities])
-  amenities: Amenities[];
+  @Column()
+  @Field()
+  status: string;
 
-  @Prop({ type: [{ type: Nearby, ref: Nearby.name }] })
-  @Field(() => [Nearby], { nullable: true })
-  nearby_properties: Nearby[];
+  @Column({ nullable: true })
+  @Field()
+  location: string;
 
-  @Prop({ type: PriceRange, ref: PriceRange.name })
+  @Column()
+  @Field()
+  type: string;
+
+  @OneToOne(() => PriceRange, {
+    cascade: true,
+    eager: true,
+  })
+  @JoinColumn()
   @Field(() => PriceRange)
   price_range: PriceRange;
 
-  @Prop({ type: TrademarkList, ref: TrademarkList.name })
-  @Field(() => TrademarkList)
-  trademarks: TrademarkList;
-
-  @Prop({ type: [{ type: Content, ref: Content.name }] })
-  @Field(() => [Content])
+  @OneToMany(() => Content, (content) => content.property, {
+    cascade: true,
+    eager: true,
+    nullable: true,
+  })
+  @Field(() => [Content], { defaultValue: [], nullable: true })
   contents: Content[];
-}
 
-export const PropertySchema = SchemaFactory.createForClass(Property);
+  @ManyToMany(() => Property)
+  @JoinTable()
+  @Field(() => [Property], { nullable: true, defaultValue: [] })
+  nearby_properties: Property[];
+
+  @Column('text', { array: true, nullable: true, default: [] })
+  @Field(() => [String], { nullable: true, defaultValue: [] })
+  gallery: string[];
+
+  @OneToMany(() => Amenities, (amenities) => amenities.property, {
+    cascade: true,
+    eager: true,
+    nullable: true,
+  })
+  @JoinColumn()
+  @Field(() => [Amenities], { nullable: true, defaultValue: [] })
+  amenities: Amenities[];
+
+  @OneToMany(() => Establishment, (establishment) => establishment.property, {
+    cascade: true,
+    eager: true,
+    nullable: true,
+  })
+  @JoinColumn()
+  @Field(() => [Establishment], { nullable: true, defaultValue: [] })
+  establishments: Establishment[];
+}

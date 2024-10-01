@@ -2,17 +2,13 @@ import { Resolver, Query, Mutation, Args, Int } from '@nestjs/graphql';
 import { PropertyService } from './property.service';
 import { Property } from './entities/property.entity';
 import { CreatePropertyInput } from './dto/create-property.input';
+import { UseGuards } from '@nestjs/common';
+import { JwtAuthGuard } from 'src/auth/auth.guard';
 
+@UseGuards(JwtAuthGuard)
 @Resolver(() => Property)
 export class PropertyResolver {
   constructor(private readonly propertyService: PropertyService) {}
-
-  @Mutation(() => Property)
-  createProperty(
-    @Args('createPropertyInput') createPropertyInput: CreatePropertyInput,
-  ) {
-    return this.propertyService.create(createPropertyInput);
-  }
 
   @Query(() => [Property], { name: 'properties' })
   findAll() {
@@ -20,12 +16,17 @@ export class PropertyResolver {
   }
 
   @Query(() => Property, { name: 'property' })
-  findOne(@Args('id', { type: () => String }) id: string) {
-    return this.propertyService.findOne(id);
+  findOne(@Args('id') id: string) {
+    return this.propertyService.find(id);
   }
 
   @Mutation(() => Property)
-  removeProperty(@Args('id', { type: () => String }) id: string) {
-    return this.propertyService.remove(id);
+  createProperty(@Args('CreatePropertyInput') input: CreatePropertyInput) {
+    return this.propertyService.create(input);
+  }
+
+  @Mutation(() => String)
+  deleteProperty(@Args('id') id: string) {
+    return this.propertyService.delete(id);
   }
 }

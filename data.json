@@ -1,0 +1,38 @@
+{
+  "input": {
+    "id": "c8e90ed3-036f-4c01-afbf-b60d607d58d6",
+    "title": "hello world 33",
+    "gallery": ["hello world"],
+    "type": "hello world",
+    "name": "hello world",
+    "description": "hello world",
+    "location": "hello world",
+    "status": "hello world",
+    "amenities": [
+      {
+        "tag": "hello world",
+        "image": "hello world"
+      }
+    ],
+    "nearby_properties": ["ad0a73c2-6acc-4502-a6c3-662114695f03"],
+    "price_range": {
+      "maximum": 1,
+      "minimum": 2
+    },
+    "establishments": [
+      {
+        "tag": "hello world",
+        "list": ["hello"]
+      }
+    ],
+    "contents": [
+      {
+        "banner": "hello world",
+        "title": "hello world",
+        "description": "hello world",
+        "content_type": "hello world"
+      }
+    ]
+  },
+  "inputs": {}
+}

@@ -9,7 +9,7 @@ class CreateAmenitiesInput {
 
   @Field()
   @IsString()
-  name: string;
+  tag: string;
 }
 
 @InputType()
@@ -24,45 +24,43 @@ class CreatePriceRangeInput {
 }
 
 @InputType()
-export class CreateTrademarkInput {
+export class CreateEstablishmentInput {
+  @Field(() => [String])
+  @IsArray()
+  list: string[];
+
   @Field()
   @IsString()
-  title: string;
-
-  @Field(() => [String])
-  @IsArray()
-  @IsString({ each: true })
-  list: string[];
-}
-
-@InputType()
-export class CreateTrademarkListInput {
-  @Field(() => [String])
-  @IsArray()
-  @IsString({ each: true })
-  images: string[];
-
-  @Field(() => [CreateTrademarkInput])
-  list: CreateTrademarkInput[];
+  tag: string;
 }
 
 @InputType()
 export class CreateContentInput {
-  @Field()
+  @Field({ nullable: true })
   @IsString()
-  title: string;
+  @IsOptional()
+  title?: string;
 
-  @Field()
+  @Field({ nullable: true })
   @IsString()
-  image: string;
+  @IsOptional()
+  banner?: string;
 
-  @Field()
-  @IsString()
-  content: string;
+  @Field(() => [String], { nullable: true })
+  @IsString({ each: true })
+  @IsArray()
+  @IsOptional()
+  gallery?: string[];
 
-  @Field()
+  @Field({ nullable: true })
   @IsString()
-  component: string;
+  @IsOptional()
+  content_type?: string;
+
+  @Field({ nullable: true })
+  @IsString()
+  @IsOptional()
+  description?: string;
 }
 
 @InputType()
@@ -70,7 +68,7 @@ export class CreatePropertyInput {
   @Field({ nullable: true })
   @IsString()
   @IsOptional()
-  _id?: string;
+  id?: string;
 
   @Field()
   @IsString()
@@ -79,11 +77,11 @@ export class CreatePropertyInput {
   @Field(() => [String])
   @IsString({ each: true })
   @IsArray()
-  images: string[];
+  gallery: string[];
 
   @Field()
   @IsString()
-  property_type: string;
+  type: string;
 
   @Field()
   @IsString()
@@ -112,8 +110,8 @@ export class CreatePropertyInput {
   @Field(() => CreatePriceRangeInput)
   price_range: CreatePriceRangeInput;
 
-  @Field(() => CreateTrademarkListInput)
-  trademarks: CreateTrademarkListInput;
+  @Field(() => [CreateEstablishmentInput])
+  establishments: CreateEstablishmentInput[];
 
   @Field(() => [CreateContentInput])
   contents: CreateContentInput[];

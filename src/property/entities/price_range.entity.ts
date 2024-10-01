@@ -1,30 +1,24 @@
 import { Field, ObjectType } from '@nestjs/graphql';
-import {
-  Column,
-  Entity,
-  ManyToMany,
-  ManyToOne,
-  PrimaryGeneratedColumn,
-} from 'typeorm';
+import { Column, Entity, OneToOne, PrimaryGeneratedColumn } from 'typeorm';
 import { Property } from './property.entity';
 
 @Entity()
 @ObjectType()
-export class Amenities {
+export class PriceRange {
   @PrimaryGeneratedColumn('uuid')
   @Field()
   id: string;
 
   @Column()
   @Field()
-  tag: string;
+  minimum: number;
 
   @Column()
   @Field()
-  image: string;
+  maximum: number;
 
-  @ManyToOne(() => Property, (property) => property.amenities, {
-    onDelete: 'CASCADE',
+  @OneToOne(() => Property, (property) => property.price_range, {
+    onDelete: 'SET NULL',
   })
   property: Property;
 }

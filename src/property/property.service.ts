@@ -1,60 +1,62 @@
-import { Injectable } from '@nestjs/common';
-import { CreatePropertyInput } from './dto/create-property.input';
-import { InjectModel } from '@nestjs/mongoose';
+import { BadRequestException, Injectable } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
 import { Property } from './entities/property.entity';
-import { Model } from 'mongoose';
+import { In, Repository } from 'typeorm';
+import { CreatePropertyInput } from './dto/create-property.input';
 
 @Injectable()
 export class PropertyService {
   constructor(
-    @InjectModel(Property.name) private readonly propertyModel: Model<Property>,
+    @InjectRepository(Property)
+    private readonly propertyRepository: Repository<Property>,
   ) {}
 
+  findAll() {
+    try {
+      return this.propertyRepository.find({ relations: ['nearby_properties'] });
+    } catch (error) {
+      throw new BadRequestException(error);
+    }
+  }
+
+  find(id: string) {
+    try {
+      return this.propertyRepository.findOne({
+        where: { id },
+        relations: ['nearby_properties'],
+      });
+    } catch (error) {
+      throw new BadRequestException(error);
+    }
+  }
+
   async create({
-    nearby_properties: nearby_properties_ids,
-    _id,
+    id,
+    nearby_properties: nearbies,
     ...rest
   }: CreatePropertyInput) {
-    const nearby_properties = await this.findByIds(nearby_properties_ids);
-    if (_id) {
-      return this.propertyModel.findByIdAndUpdate(
-        _id,
-        {
-          nearby_properties,
-          ...rest,
-        },
-        { returnOriginal: false },
-      );
+    try {
+      const mapNearbies = await this.propertyRepository.find({
+        where: { id: In(nearbies) },
+      });
+
+      return this.propertyRepository.save({
+        id,
+        nearby_properties: mapNearbies,
+        ...rest,
+      });
+    } catch (error) {
+      throw new BadRequestException(error);
     }
-    return this.propertyModel.create({ nearby_properties, ...rest });
   }
 
-  findAll() {
-    return this.propertyModel.find();
-  }
+  async delete(id: string) {
+    try {
+      await this.propertyRepository.delete({ id });
 
-  findByIds(ids: string[]) {
-    return this.propertyModel.find({
-      _id: {
-        $in: ids,
-      },
-    });
-  }
-
-  findOne(id: string) {
-    return this.propertyModel.findById(id);
-  }
-
-  async remove(id: string) {
-    await this.propertyModel.updateMany(
-      {
-        'nearby_properties._id': id,
-      },
-      {
-        $pull: { nearby_properties: { _id: id } },
-      },
-    );
-
-    return this.propertyModel.findByIdAndDelete(id);
+      return 'property deleted successfully';
+    } catch (error) {
+      throw new BadRequestException(error);
+    }
   }
 }
