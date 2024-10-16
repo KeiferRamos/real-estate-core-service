@@ -15,6 +15,9 @@ import { Blog } from './blogs/entities/blog.entity';
 import { AdminModule } from './admin/admin.module';
 import { Admin } from './admin/entities/admin.entity';
 import { FullName } from './admin/entities/fullname.entity';
+import { RolesModule } from './roles/roles.module';
+import { Role } from './roles/entities/role.entity';
+import { Permission } from './roles/entities/permission.entity';
 
 @Module({
   imports: [
@@ -35,6 +38,8 @@ import { FullName } from './admin/entities/fullname.entity';
         Blog,
         Admin,
         FullName,
+        Role,
+        Permission,
       ],
       synchronize: true,
     }),
@@ -45,6 +50,7 @@ import { FullName } from './admin/entities/fullname.entity';
     PropertyModule,
     BlogsModule,
     AdminModule,
+    RolesModule,
   ],
 })
 export class AppModule {}

@@ -12,6 +12,9 @@ import { LocalStrategy } from './jwt.strategy';
 
     JwtModule.register({
       secret: process.env.SECRET,
+      signOptions: {
+        expiresIn: '8h',
+      },
     }),
   ],
   exports: [JwtAuthGuard, LocalStrategy],

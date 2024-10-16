@@ -6,6 +6,7 @@ import { Admin } from './entities/admin.entity';
 import { FullName } from './entities/fullname.entity';
 import { JwtModule } from '@nestjs/jwt';
 import { ConfigModule } from '@nestjs/config';
+import { RolesModule } from 'src/roles/roles.module';
 
 @Module({
   imports: [
@@ -15,7 +16,11 @@ import { ConfigModule } from '@nestjs/config';
     TypeOrmModule.forFeature([Admin, FullName]),
     JwtModule.register({
       secret: process.env.SECRET,
+      signOptions: {
+        expiresIn: '8h',
+      },
     }),
+    RolesModule,
   ],
   providers: [AdminResolver, AdminService],
 })

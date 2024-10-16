@@ -13,7 +13,12 @@ import { ConfigModule } from '@nestjs/config';
     ConfigModule.forRoot({ isGlobal: true }),
     TypeOrmModule.forFeature([BlogContent, Blog]),
     AuthModule,
-    JwtModule.register({ secret: process.env.SECRET }),
+    JwtModule.register({
+      secret: process.env.SECRET,
+      signOptions: {
+        expiresIn: '8h',
+      },
+    }),
   ],
   providers: [BlogsResolver, BlogsService],
 })

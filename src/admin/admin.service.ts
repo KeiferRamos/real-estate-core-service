@@ -10,6 +10,7 @@ import { Repository } from 'typeorm';
 import * as bcrypt from 'bcrypt';
 import { JwtService } from '@nestjs/jwt';
 import { SigninUserInput } from './dto/signin-admin.input';
+import { RolesService } from 'src/roles/roles.service';
 
 @Injectable()
 export class AdminService {
@@ -17,15 +18,23 @@ export class AdminService {
     @InjectRepository(Admin)
     private readonly adminRepository: Repository<Admin>,
     private readonly jwtService: JwtService,
+    private readonly roleService: RolesService,
   ) {}
 
-  async create({ password, ...rest }: CreateAdminInput) {
+  async create({ password, registration_id, role, ...rest }: CreateAdminInput) {
     const salt = await bcrypt.genSalt();
     const hash = await bcrypt.hash(password, salt);
+
+    if (registration_id !== process.env.REGISTRATION_ID) {
+      throw new UnauthorizedException();
+    }
+
+    const userRole = await this.roleService.findRoleById(role);
 
     return this.adminRepository.save({
       ...rest,
       password: hash,
+      role: userRole,
     });
   }
 
@@ -34,7 +43,7 @@ export class AdminService {
       const isValidUser = await this.adminRepository.findOneBy({ username });
 
       if (!isValidUser) {
-        throw new UnauthorizedException();
+        throw new BadRequestException('incorrect username or password!');
       }
 
       const isPasswordCorrect = await bcrypt.compare(
@@ -46,9 +55,9 @@ export class AdminService {
         throw new BadRequestException('incorrect username or password');
       }
 
-      return this.jwtService.sign({ id: isValidUser.id }, { expiresIn: '8h' });
+      return this.jwtService.sign({ ...isValidUser.role }, { expiresIn: '8h' });
     } catch (error) {
-      throw new BadRequestException('internal server error');
+      throw new BadRequestException(error);
     }
   }
 

@@ -72,11 +72,23 @@ type FullName {
   middle_name: String
 }
 
+type Permission {
+  id: String!
+  name: String!
+  permissions: [String!]!
+}
+
+type Role {
+  id: String!
+  role: String!
+  permission: Permission!
+}
+
 type Admin {
   id: String!
   username: String!
   password: String!
-  role: String!
+  role: Role!
   full_name: FullName!
 }
 
@@ -87,6 +99,9 @@ type Query {
   blog(id: String!): Blog!
   admins: [Admin!]!
   admin(id: String!): Admin!
+  roles: [Role!]!
+  permissions: [Permission!]!
+  role(id: Int!): Role!
 }
 
 type Mutation {
@@ -97,6 +112,10 @@ type Mutation {
   createAdmin(createAdminInput: CreateAdminInput!): Admin!
   signin(signinUserInput: SigninUserInput!): String!
   removeAdmin(id: Int!): Admin!
+  createRole(createRoleInput: CreateRoleInput!): Role!
+  createPermission(createPermissionInput: CreatePermissionInput!): Permission!
+  updateRole(updateRoleInput: UpdateRoleInput!): Role!
+  removeRole(id: Int!): Role!
 }
 
 input CreatePropertyInput {
@@ -161,6 +180,7 @@ input CreateBlogContentInput {
 
 input CreateAdminInput {
   id: String
+  registration_id: String
   username: String!
   password: String!
   role: String!
@@ -176,4 +196,20 @@ input CreateFullNameInput {
 input SigninUserInput {
   username: String!
   password: String!
+}
+
+input CreateRoleInput {
+  role: String!
+  permission: String!
+}
+
+input CreatePermissionInput {
+  name: String!
+  permissions: [String!]!
+}
+
+input UpdateRoleInput {
+  role: String
+  permission: String
+  id: Int!
 }

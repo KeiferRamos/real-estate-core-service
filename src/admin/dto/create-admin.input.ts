@@ -25,6 +25,11 @@ export class CreateAdminInput {
   @IsOptional()
   id?: string;
 
+  @Field({ nullable: true })
+  @IsString()
+  @IsOptional()
+  registration_id?: string;
+
   @Field()
   @IsString()
   username: string;
