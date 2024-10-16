@@ -17,17 +17,23 @@ import { Admin } from './admin/entities/admin.entity';
 import { FullName } from './admin/entities/fullname.entity';
 import { RolesModule } from './roles/roles.module';
 import { Role } from './roles/entities/role.entity';
+import { ConfigModule } from '@nestjs/config';
 import { Permission } from './roles/entities/permission.entity';
 
 @Module({
   imports: [
+    ConfigModule.forRoot({ isGlobal: true }),
     TypeOrmModule.forRoot({
-      database: 'real-estate',
+      database: process.env.NAME,
       type: 'postgres',
-      username: 'postgres',
-      password: 'postgres',
-      host: 'localhost',
-      port: 5432,
+      url: process.env.DATABASE_URL,
+      username: process.env.USERNAME,
+      password: process.env.PASSWORD,
+      ssl: {
+        rejectUnauthorized: false,
+      },
+      host: process.env.HOST,
+      port: 6543,
       entities: [
         Property,
         PriceRange,
@@ -41,7 +47,7 @@ import { Permission } from './roles/entities/permission.entity';
         Role,
         Permission,
       ],
-      synchronize: true,
+      synchronize: false,
     }),
     GraphQLModule.forRoot<ApolloDriverConfig>({
       driver: ApolloDriver,

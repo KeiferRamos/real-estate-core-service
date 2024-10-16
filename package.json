@@ -1,6 +1,18 @@
 {
   "name": "keppers-realty-core-service",
   "version": "0.0.1",
+  "builds": [
+    {
+      "src": "dist/main.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "dist/main.js"
+    }
+  ],
   "description": "",
   "author": "",
   "private": true,
@@ -36,8 +48,9 @@
     "class-validator": "^0.14.1",
     "graphql": "^16.9.0",
     "mongoose": "^8.5.2",
+    "passport": "^0.7.0",
     "passport-jwt": "^4.0.1",
-    "pg": "^8.12.0",
+    "pg": "^8.13.0",
     "postgres": "^3.4.4",
     "reflect-metadata": "^0.2.0",
     "rxjs": "^7.8.1",
