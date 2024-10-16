@@ -1,18 +1,6 @@
 {
   "name": "keppers-realty-core-service",
   "version": "0.0.1",
-  "builds": [
-    {
-      "src": "dist/main.js",
-      "use": "@vercel/node"
-    }
-  ],
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "dist/main.js"
-    }
-  ],
   "description": "",
   "author": "",
   "private": true,
