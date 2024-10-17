@@ -8,7 +8,7 @@ import { Reflector } from '@nestjs/core';
 
 import { GqlExecutionContext } from '@nestjs/graphql';
 import { JwtService } from '@nestjs/jwt';
-import { IS_PUBLIC_KEY, IS_SECURED_KEY } from './meta/data';
+import { IS_PUBLIC_KEY, IS_SECURED_KEY } from 'meta/data';
 
 @Injectable()
 export class JwtAuthGuard implements CanActivate {

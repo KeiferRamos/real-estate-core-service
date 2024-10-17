@@ -8,7 +8,7 @@ import {
   PrimaryGeneratedColumn,
 } from 'typeorm';
 import { Permission } from './permission.entity';
-import { Admin } from './admin/entities/admin.entity';
+import { Admin } from 'admin/entities/admin.entity';
 
 @Entity()
 @ObjectType()

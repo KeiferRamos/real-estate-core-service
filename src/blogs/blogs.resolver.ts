@@ -3,8 +3,8 @@ import { BlogsService } from './blogs.service';
 import { Blog } from './entities/blog.entity';
 import { CreateBlogInput } from './dto/create-blog.input';
 import { UseGuards } from '@nestjs/common';
-import { JwtAuthGuard } from './auth/auth.guard';
-import { IsPublic, Role, Secured } from './meta/data';
+import { JwtAuthGuard } from 'auth/auth.guard';
+import { IsPublic, Role, Secured } from 'meta/data';
 
 @UseGuards(JwtAuthGuard)
 @Resolver(() => Blog)

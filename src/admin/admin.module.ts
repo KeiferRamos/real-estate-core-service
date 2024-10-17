@@ -6,7 +6,7 @@ import { Admin } from './entities/admin.entity';
 import { FullName } from './entities/fullname.entity';
 import { JwtModule } from '@nestjs/jwt';
 import { ConfigModule } from '@nestjs/config';
-import { RolesModule } from './roles/roles.module';
+import { RolesModule } from 'roles/roles.module';
 
 @Module({
   imports: [
