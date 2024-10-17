@@ -1,7 +1,7 @@
 import { Resolver, Query, Mutation, Args, Int } from '@nestjs/graphql';
 import { RolesService } from './roles.service';
 import { Role } from './entities/role.entity';
-import { Role as Permissions } from 'src/meta/data';
+import { Role as Permissions } from './meta/data';
 import {
   CreatePermissionInput,
   CreateRoleInput,
@@ -10,7 +10,7 @@ import { UpdateRoleInput } from './dto/update-role.input';
 import { Permission } from './entities/permission.entity';
 import { UseGuards } from '@nestjs/common';
 import { JwtAuthGuard } from 'src/auth/auth.guard';
-import { Secured } from 'src/meta/data';
+import { Secured } from './meta/data';
 
 @UseGuards(JwtAuthGuard)
 @Resolver(() => Role)

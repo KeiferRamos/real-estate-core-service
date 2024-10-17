@@ -5,7 +5,7 @@ import { CreateAdminInput } from './dto/create-admin.input';
 import { SigninUserInput } from './dto/signin-admin.input';
 import { JwtAuthGuard } from 'src/auth/auth.guard';
 import { UseGuards } from '@nestjs/common';
-import { IsPublic, Role, Secured } from 'src/meta/data';
+import { IsPublic, Role, Secured } from './meta/data';
 
 @UseGuards(JwtAuthGuard)
 @Resolver(() => Admin)
