@@ -3,7 +3,7 @@ import { AdminService } from './admin.service';
 import { Admin } from './entities/admin.entity';
 import { CreateAdminInput } from './dto/create-admin.input';
 import { SigninUserInput } from './dto/signin-admin.input';
-import { JwtAuthGuard } from 'src/auth/auth.guard';
+import { JwtAuthGuard } from './auth/auth.guard';
 import { UseGuards } from '@nestjs/common';
 import { IsPublic, Role, Secured } from './meta/data';
 

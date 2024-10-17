@@ -3,7 +3,7 @@ import { PropertyService } from './property.service';
 import { Property } from './entities/property.entity';
 import { CreatePropertyInput } from './dto/create-property.input';
 import { UseGuards } from '@nestjs/common';
-import { JwtAuthGuard } from 'src/auth/auth.guard';
+import { JwtAuthGuard } from './auth/auth.guard';
 import { IsPublic, Role, Secured } from './meta/data';
 
 @UseGuards(JwtAuthGuard)

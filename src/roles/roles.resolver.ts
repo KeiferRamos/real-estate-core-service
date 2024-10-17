@@ -9,7 +9,7 @@ import {
 import { UpdateRoleInput } from './dto/update-role.input';
 import { Permission } from './entities/permission.entity';
 import { UseGuards } from '@nestjs/common';
-import { JwtAuthGuard } from 'src/auth/auth.guard';
+import { JwtAuthGuard } from './auth/auth.guard';
 import { Secured } from './meta/data';
 
 @UseGuards(JwtAuthGuard)

@@ -8,7 +8,7 @@ import {
   PrimaryGeneratedColumn,
 } from 'typeorm';
 import { FullName } from './fullname.entity';
-import { Role } from 'src/roles/entities/role.entity';
+import { Role } from './roles/entities/role.entity';
 
 @Entity()
 @ObjectType()
