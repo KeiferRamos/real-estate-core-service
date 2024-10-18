@@ -51,7 +51,8 @@ import { Permission } from './roles/entities/permission.entity';
     }),
     GraphQLModule.forRoot<ApolloDriverConfig>({
       driver: ApolloDriver,
-      autoSchemaFile: join(process.cwd(), 'src/schema.gql'),
+      autoSchemaFile: true, // Set this to true to use an in-memory schema instead of writing to a file
+      sortSchema: true,
     }),
     PropertyModule,
     BlogsModule,
