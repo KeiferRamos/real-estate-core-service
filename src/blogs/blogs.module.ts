@@ -4,7 +4,7 @@ import { BlogsResolver } from './blogs.resolver';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { BlogContent } from './entities/blog_content.entity';
 import { Blog } from './entities/blog.entity';
-import { AuthModule } from 'auth/auth.module';
+import { AuthModule } from '../auth/auth.module';
 import { JwtModule } from '@nestjs/jwt';
 import { ConfigModule } from '@nestjs/config';
 

@@ -10,7 +10,7 @@ import { Repository } from 'typeorm';
 import * as bcrypt from 'bcrypt';
 import { JwtService } from '@nestjs/jwt';
 import { SigninUserInput } from './dto/signin-admin.input';
-import { RolesService } from 'roles/roles.service';
+import { RolesService } from '../roles/roles.service';
 
 @Injectable()
 export class AdminService {
