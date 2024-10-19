@@ -31,25 +31,25 @@ export class JwtAuthGuard implements CanActivate {
     try {
       if (isPublic) {
         return true;
-      }
-
-      const ctx = GqlExecutionContext.create(context);
-      const token = this.extractTokenFromHeader(ctx.getContext().req);
-
-      if (!token) {
-        throw new UnauthorizedException();
-      }
-
-      await this.jwtService.verifyAsync(token, {
-        secret: process.env.SECRET,
-      });
-
-      const decodedToken = await this.jwtService.decode(token);
-
-      if (role && decodedToken.permission.permissions.includes(role)) {
-        return true;
       } else {
-        throw new UnauthorizedException();
+        const ctx = GqlExecutionContext.create(context);
+        const token = this.extractTokenFromHeader(ctx.getContext().req);
+
+        if (!token) {
+          throw new UnauthorizedException();
+        }
+
+        await this.jwtService.verifyAsync(token, {
+          secret: process.env.SECRET,
+        });
+
+        const decodedToken = await this.jwtService.decode(token);
+
+        if (role && decodedToken.permission.permissions.includes(role)) {
+          return true;
+        } else {
+          throw new UnauthorizedException();
+        }
       }
     } catch (error) {
       throw new UnauthorizedException();
