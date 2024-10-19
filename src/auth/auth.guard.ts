@@ -48,9 +48,9 @@ export class JwtAuthGuard implements CanActivate {
 
       if (role && decodedToken.permission.permissions.includes(role)) {
         return true;
+      } else {
+        throw new UnauthorizedException();
       }
-
-      throw new UnauthorizedException();
     } catch (error) {
       throw new UnauthorizedException();
     }
