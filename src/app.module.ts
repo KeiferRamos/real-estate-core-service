@@ -53,6 +53,7 @@ import { Permission } from './roles/entities/permission.entity';
       driver: ApolloDriver,
       autoSchemaFile: true,
       sortSchema: true,
+      introspection: true,
     }),
     PropertyModule,
     BlogsModule,
