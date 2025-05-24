@@ -29,9 +29,6 @@ import { Permission } from './roles/entities/permission.entity';
       url: process.env.DATABASE_URL,
       username: process.env.USERNAME,
       password: process.env.PASSWORD,
-      ssl: {
-        rejectUnauthorized: false,
-      },
       host: process.env.HOST,
       port: 6543,
       entities: [
