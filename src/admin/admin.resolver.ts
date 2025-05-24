@@ -5,7 +5,7 @@ import { CreateAdminInput } from './dto/create-admin.input';
 import { SigninUserInput } from './dto/signin-admin.input';
 import { JwtAuthGuard } from '../auth/auth.guard';
 import { UseGuards } from '@nestjs/common';
-import { IsPublic, Role, Secured } from '../meta/data';
+import { IsPublic } from '../meta/data';
 
 @UseGuards(JwtAuthGuard)
 @Resolver(() => Admin)
@@ -34,7 +34,6 @@ export class AdminResolver {
     return this.adminService.signin(input);
   }
 
-  @Secured(Role.REMOVE_USER)
   @Mutation(() => Admin)
   removeAdmin(@Args('id', { type: () => Int }) id: number) {
     return this.adminService.remove(id);
