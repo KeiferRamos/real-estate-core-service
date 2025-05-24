@@ -10,7 +10,6 @@ import { Repository } from 'typeorm';
 import * as bcrypt from 'bcrypt';
 import { JwtService } from '@nestjs/jwt';
 import { SigninUserInput } from './dto/signin-admin.input';
-import { RolesService } from '../roles/roles.service';
 
 @Injectable()
 export class AdminService {
@@ -18,10 +17,9 @@ export class AdminService {
     @InjectRepository(Admin)
     private readonly adminRepository: Repository<Admin>,
     private readonly jwtService: JwtService,
-    private readonly roleService: RolesService,
   ) {}
 
-  async create({ password, registration_id, role, ...rest }: CreateAdminInput) {
+  async create({ password, registration_id, ...rest }: CreateAdminInput) {
     const salt = await bcrypt.genSalt();
     const hash = await bcrypt.hash(password, salt);
 
@@ -29,12 +27,9 @@ export class AdminService {
       throw new UnauthorizedException();
     }
 
-    const userRole = await this.roleService.findRoleById(role);
-
     return this.adminRepository.save({
       ...rest,
       password: hash,
-      role: userRole,
     });
   }
 
@@ -55,7 +50,10 @@ export class AdminService {
         throw new BadRequestException('incorrect username or password');
       }
 
-      return this.jwtService.sign({ ...isValidUser.role }, { expiresIn: '8h' });
+      return this.jwtService.sign(
+        { full_name: isValidUser.full_name },
+        { expiresIn: '8h' },
+      );
     } catch (error) {
       throw new BadRequestException(error);
     }
