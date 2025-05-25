@@ -1,5 +1,5 @@
 import { InputType, Field } from '@nestjs/graphql';
-import { CreateContentInput } from '@src/property/dto/create-property.input';
+import { CreateContentInput } from '../../property/dto/create-property.input';
 import { Type } from 'class-transformer';
 import { IsArray, IsOptional, IsString, ValidateNested } from 'class-validator';
 

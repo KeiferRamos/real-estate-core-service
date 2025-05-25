@@ -10,7 +10,7 @@ import {
   PrimaryGeneratedColumn,
 } from 'typeorm';
 import { PriceRange } from './price_range.entity';
-import { Content } from '@src/blogs/entities/content.entity';
+import { Content } from '../../blogs/entities/content.entity';
 import { Asset } from './asset';
 
 @Entity()
