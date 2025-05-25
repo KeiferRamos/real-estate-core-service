@@ -1,38 +1,110 @@
 {
   "input": {
-    "id": "c8e90ed3-036f-4c01-afbf-b60d607d58d6",
-    "title": "hello world 33",
-    "gallery": ["hello world"],
-    "type": "hello world",
-    "name": "hello world",
-    "description": "hello world",
-    "location": "hello world",
-    "status": "hello world",
-    "amenities": [
+    "opening": "<h1>I'm baby edison bulb wayfarers kitsch af</h1><p>venmo etsy la croix, hell of everyday carry pok pok. Live-edge banjo pok pok, JOMO gentrify drinking vinegar meditation cornhole normcore poke taiyaki twee af biodiesel. Blackbird spyplane green juice mustache DSA kitsch. Tofu biodiesel four dollar toast tattooed tumeric.</p><p>I'm baby edison bulb wayfarers kitsch af venmo etsy la croix, hell of everyday carry pok pok. Live-edge banjo pok pok, JOMO gentrify drinking vinegar meditation cornhole normcore poke taiyaki twee af biodiesel. Blackbird spyplane green juice mustache DSA kitsch. Tofu biodiesel four dollar toast tattooed tumeric. <br> <br><br></p>",
+    "gallery": [
       {
-        "tag": "hello world",
-        "image": "hello world"
+        "tag": "front view of properties",
+        "image": "https://images.unsplash.com/photo-1605146769289-440113cc3d00?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "category": "banner"
+      },
+      {
+        "tag": "side view of properties",
+        "image": "https://images.unsplash.com/photo-1605146769289-440113cc3d00?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "category": "banner"
+      },
+      {
+        "tag": "top view of properties",
+        "image": "https://images.unsplash.com/photo-1605146769289-440113cc3d00?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "category": "banner"
+      },
+      {
+        "tag": "basketball court",
+        "image": "https://images.unsplash.com/photo-1605146769289-440113cc3d00?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "category": "amenity"
+      },
+      {
+        "tag": "children park",
+        "image": "https://images.unsplash.com/photo-1605146769289-440113cc3d00?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "category": "amenity"
+      },
+      {
+        "tag": "swimming pool",
+        "image": "https://images.unsplash.com/photo-1605146769289-440113cc3d00?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "category": "amenity"
+      },
+      {
+        "tag": "hospital",
+        "image": "https://images.unsplash.com/photo-1605146769289-440113cc3d00?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "category": "establishment"
+      },
+      {
+        "tag": "grocery store",
+        "image": "https://images.unsplash.com/photo-1605146769289-440113cc3d00?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "category": "establishment"
+      },
+      {
+        "tag": "university school",
+        "image": "https://images.unsplash.com/photo-1605146769289-440113cc3d00?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "category": "establishment"
       }
     ],
-    "nearby_properties": ["ad0a73c2-6acc-4502-a6c3-662114695f03"],
+    "category": "house & Lot",
+    "name": "Parklane Settings Vermosa",
+    "location": "Cabanatuan City, Nueva Ecija",
+    "status": "Pre-selling",
+    "nearby_properties": [],
     "price_range": {
-      "maximum": 1,
-      "minimum": 2
+      "maximum": 100000000,
+      "minimum": 500000000
     },
-    "establishments": [
-      {
-        "tag": "hello world",
-        "list": ["hello"]
-      }
-    ],
     "contents": [
       {
-        "banner": "hello world",
-        "title": "hello world",
-        "description": "hello world",
-        "content_type": "hello world"
+        "richtext": "<h1>Discover Your Dream Home: Charming House &amp; Lot in Cabanatuan City, Nueva Ecija</h1><p>Welcome to our inviting house and lot nestled in Cabanatuan City, Nueva Ecija. With 3 bedrooms,4 bathrooms, and 20 square feet of space, this property combines comfort with convenience. The well-maintained interior exudes warmth, while the landscaped outdoor area offers a peaceful retreat. <br><br>Located near SM Nueva Ecija, residents enjoy easy access to essentials and entertainment. Schedule a viewing today and envision the possibilities of making this house and lot your new home!  <br><br></p>",
+        "gallery": [
+          "https://images.unsplash.com/photo-1605146769289-440113cc3d00?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        ],
+        "content_type": "component-1"
+      },
+      {
+        "richtext": "<h1>Discover Your Dream Home: Charming House &amp; Lot in Cabanatuan City, Nueva Ecija</h1><p>Welcome to our inviting house and lot nestled in Cabanatuan City, Nueva Ecija. With 3 bedrooms,4 bathrooms, and 20 square feet of space, this property combines comfort with convenience. The well-maintained interior exudes warmth, while the landscaped outdoor area offers a peaceful retreat. <br><br>Located near SM Nueva Ecija, residents enjoy easy access to essentials and entertainment. Schedule a viewing today and envision the possibilities of making this house and lot your new home!  <br><br></p>",
+        "gallery": [
+          "https://images.unsplash.com/photo-1605146769289-440113cc3d00?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        ],
+        "content_type": "component-2"
       }
     ]
   },
-  "inputs": {}
+  "inputs": {
+    "title": "Mastering Gourmet Cuisine: The Art of Stuffed Chicken",
+    "description": "Discover the latest in technology and innovation at 'Breakthroughs and Beyond,' a tech expo showcasing cutting-edge products, services, and ideas from leading companies and startups.",
+    "author": "Keifer Ramos",
+    "date_published": "02/20/2024",
+    "tags": ["arts", "culture"],
+    "banner": "https://images.unsplash.com/photo-1605146769289-440113cc3d00?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "contents": [
+      {
+        "richtext": "<h1>Discover Your Dream Home: Charming House &amp; Lot in Cabanatuan City, Nueva Ecija</h1><p>Welcome to our inviting house and lot nestled in Cabanatuan City, Nueva Ecija. With 3 bedrooms,4 bathrooms, and 20 square feet of space, this property combines comfort with convenience. The well-maintained interior exudes warmth, while the landscaped outdoor area offers a peaceful retreat. <br><br>Located near SM Nueva Ecija, residents enjoy easy access to essentials and entertainment. Schedule a viewing today and envision the possibilities of making this house and lot your new home!  <br><br></p>",
+        "gallery": [
+          "https://images.unsplash.com/photo-1605146769289-440113cc3d00?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        ],
+        "content_type": "component-1"
+      },
+      {
+        "richtext": null,
+        "gallery": [
+          "https://images.unsplash.com/photo-1605146769289-440113cc3d00?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+          "https://images.unsplash.com/photo-1605146769289-440113cc3d00?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+          "https://images.unsplash.com/photo-1605146769289-440113cc3d00?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        ],
+        "content_type": "component-3"
+      },
+      {
+        "richtext": null,
+        "gallery": [
+          "https://images.unsplash.com/photo-1605146769289-440113cc3d00?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        ],
+        "content_type": "component-4"
+      }
+    ]
+  }
 }

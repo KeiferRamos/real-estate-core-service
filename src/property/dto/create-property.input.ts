@@ -2,7 +2,7 @@ import { InputType, Int, Field } from '@nestjs/graphql';
 import { IsArray, IsNumber, IsOptional, IsString } from 'class-validator';
 
 @InputType()
-class CreateAmenitiesInput {
+class CreateAssetInput {
   @Field()
   @IsString()
   image: string;
@@ -10,6 +10,10 @@ class CreateAmenitiesInput {
   @Field()
   @IsString()
   tag: string;
+
+  @Field({ nullable: true })
+  @IsString()
+  category: string;
 }
 
 @InputType()
@@ -24,28 +28,7 @@ class CreatePriceRangeInput {
 }
 
 @InputType()
-export class CreateEstablishmentInput {
-  @Field(() => [String])
-  @IsArray()
-  list: string[];
-
-  @Field()
-  @IsString()
-  tag: string;
-}
-
-@InputType()
 export class CreateContentInput {
-  @Field({ nullable: true })
-  @IsString()
-  @IsOptional()
-  title?: string;
-
-  @Field({ nullable: true })
-  @IsString()
-  @IsOptional()
-  banner?: string;
-
   @Field(() => [String], { nullable: true })
   @IsString({ each: true })
   @IsArray()
@@ -55,12 +38,12 @@ export class CreateContentInput {
   @Field({ nullable: true })
   @IsString()
   @IsOptional()
-  content_type?: string;
+  richtext?: string;
 
   @Field({ nullable: true })
   @IsString()
   @IsOptional()
-  description?: string;
+  content_type?: string;
 }
 
 @InputType()
@@ -70,26 +53,21 @@ export class CreatePropertyInput {
   @IsOptional()
   id?: string;
 
-  @Field()
-  @IsString()
-  title: string;
-
-  @Field(() => [String])
-  @IsString({ each: true })
+  @Field(() => [CreateAssetInput])
   @IsArray()
-  gallery: string[];
+  gallery: CreateAssetInput[];
 
   @Field()
   @IsString()
-  type: string;
+  category: string;
+
+  @Field()
+  @IsString()
+  opening: string;
 
   @Field()
   @IsString()
   name: string;
-
-  @Field()
-  @IsString()
-  description: string;
 
   @Field()
   @IsString()
@@ -99,19 +77,12 @@ export class CreatePropertyInput {
   @IsString()
   status: string;
 
-  @Field(() => [CreateAmenitiesInput])
-  @IsArray()
-  amenities: CreateAmenitiesInput[];
-
   @Field(() => [String])
   @IsArray()
   nearby_properties: string[];
 
   @Field(() => CreatePriceRangeInput)
   price_range: CreatePriceRangeInput;
-
-  @Field(() => [CreateEstablishmentInput])
-  establishments: CreateEstablishmentInput[];
 
   @Field(() => [CreateContentInput])
   contents: CreateContentInput[];

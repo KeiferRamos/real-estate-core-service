@@ -4,7 +4,7 @@ import { Property } from './property.entity';
 
 @Entity()
 @ObjectType()
-export class Establishment {
+export class Asset {
   @PrimaryGeneratedColumn('uuid')
   @Field()
   id: string;
@@ -13,10 +13,16 @@ export class Establishment {
   @Field()
   tag: string;
 
-  @Column('text', { array: true })
-  @Field(() => [String])
-  list: string[];
+  @Column()
+  @Field()
+  image: string;
 
-  @ManyToOne(() => Property, (property) => property, { onDelete: 'CASCADE' })
-  property: Property;
+  @Column({ nullable: true })
+  @Field()
+  category: string;
+
+  @ManyToOne(() => Property, (property) => property.gallery, {
+    onDelete: 'CASCADE',
+  })
+  gallery: Property;
 }

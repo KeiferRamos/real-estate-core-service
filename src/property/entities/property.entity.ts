@@ -10,9 +10,8 @@ import {
   PrimaryGeneratedColumn,
 } from 'typeorm';
 import { PriceRange } from './price_range.entity';
-import { Content } from './content.entity';
-import { Amenities } from './amenities.entity';
-import { Establishment } from './establishment.entity';
+import { Content } from '@src/blogs/entities/content.entity';
+import { Asset } from './asset';
 
 @Entity()
 @ObjectType()
@@ -21,17 +20,13 @@ export class Property {
   @Field()
   id: string;
 
-  @Column()
   @Field()
-  title: string;
+  @Column()
+  opening: string;
 
   @Column()
   @Field()
   name: string;
-
-  @Column()
-  @Field()
-  description: string;
 
   @Column()
   @Field()
@@ -43,7 +38,7 @@ export class Property {
 
   @Column()
   @Field()
-  type: string;
+  category: string;
 
   @OneToOne(() => PriceRange, {
     cascade: true,
@@ -66,25 +61,12 @@ export class Property {
   @Field(() => [Property], { nullable: true, defaultValue: [] })
   nearby_properties: Property[];
 
-  @Column('text', { array: true, nullable: true, default: [] })
-  @Field(() => [String], { nullable: true, defaultValue: [] })
-  gallery: string[];
-
-  @OneToMany(() => Amenities, (amenities) => amenities.property, {
+  @OneToMany(() => Asset, (asset) => asset.gallery, {
     cascade: true,
     eager: true,
     nullable: true,
   })
   @JoinColumn()
-  @Field(() => [Amenities], { nullable: true, defaultValue: [] })
-  amenities: Amenities[];
-
-  @OneToMany(() => Establishment, (establishment) => establishment.property, {
-    cascade: true,
-    eager: true,
-    nullable: true,
-  })
-  @JoinColumn()
-  @Field(() => [Establishment], { nullable: true, defaultValue: [] })
-  establishments: Establishment[];
+  @Field(() => [Asset], { nullable: true, defaultValue: [] })
+  gallery: Asset[];
 }

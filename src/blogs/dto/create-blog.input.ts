@@ -1,44 +1,7 @@
 import { InputType, Field } from '@nestjs/graphql';
+import { CreateContentInput } from '@src/property/dto/create-property.input';
 import { Type } from 'class-transformer';
 import { IsArray, IsOptional, IsString, ValidateNested } from 'class-validator';
-
-@InputType()
-export class CreateBlogContentInput {
-  @Field({ nullable: true })
-  @IsString()
-  @IsOptional()
-  id?: string;
-
-  @Field()
-  @IsString()
-  content_type: string;
-
-  @Field(() => [String], { nullable: true })
-  @IsString({ each: true })
-  @IsArray()
-  @IsOptional()
-  gallery?: string[];
-
-  @Field({ nullable: true })
-  @IsString()
-  @IsOptional()
-  video?: string;
-
-  @Field({ nullable: true })
-  @IsString()
-  @IsOptional()
-  banner?: string;
-
-  @Field({ nullable: true })
-  @IsString()
-  @IsOptional()
-  title?: string;
-
-  @Field({ nullable: true })
-  @IsString()
-  @IsOptional()
-  description?: string;
-}
 
 @InputType()
 export class CreateBlogInput {
@@ -61,12 +24,12 @@ export class CreateBlogInput {
 
   @IsString()
   @Field()
-  date_created: string;
+  date_published: string;
 
   @IsString({ each: true })
   @Field(() => [String])
   @IsArray()
-  categories: string[];
+  tags: string[];
 
   @IsString()
   @Field()
@@ -74,7 +37,7 @@ export class CreateBlogInput {
 
   @IsArray()
   @ValidateNested({ each: true })
-  @Type(() => CreateBlogContentInput)
-  @Field(() => [CreateBlogContentInput])
-  blog_contents: CreateBlogContentInput[];
+  @Type(() => CreateContentInput)
+  @Field(() => [CreateContentInput])
+  contents: CreateContentInput[];
 }
