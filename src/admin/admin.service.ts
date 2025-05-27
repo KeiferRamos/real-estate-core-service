@@ -10,6 +10,7 @@ import { Repository } from 'typeorm';
 import * as bcrypt from 'bcrypt';
 import { JwtService } from '@nestjs/jwt';
 import { SigninUserInput } from './dto/signin-admin.input';
+import { GraphQLError } from 'graphql';
 
 @Injectable()
 export class AdminService {
@@ -38,7 +39,7 @@ export class AdminService {
       const isValidUser = await this.adminRepository.findOneBy({ username });
 
       if (!isValidUser) {
-        throw new BadRequestException('incorrect username or password!');
+        throw new GraphQLError('incorrect username or password!');
       }
 
       const isPasswordCorrect = await bcrypt.compare(
@@ -47,7 +48,7 @@ export class AdminService {
       );
 
       if (!isPasswordCorrect) {
-        throw new BadRequestException('incorrect username or password');
+        throw new GraphQLError('incorrect username or password');
       }
 
       return this.jwtService.sign(
