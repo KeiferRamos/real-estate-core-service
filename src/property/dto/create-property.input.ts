@@ -1,5 +1,11 @@
 import { InputType, Int, Field } from '@nestjs/graphql';
-import { IsArray, IsNumber, IsOptional, IsString } from 'class-validator';
+import {
+  IsArray,
+  IsNumber,
+  IsObject,
+  IsOptional,
+  IsString,
+} from 'class-validator';
 
 @InputType()
 class CreateAssetInput {
@@ -82,8 +88,10 @@ export class CreatePropertyInput {
   nearby_properties: string[];
 
   @Field(() => CreatePriceRangeInput)
+  @IsObject()
   price_range: CreatePriceRangeInput;
 
   @Field(() => [CreateContentInput])
+  @IsArray()
   contents: CreateContentInput[];
 }

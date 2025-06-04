@@ -40,7 +40,7 @@ export class Property {
   @Field()
   category: string;
 
-  @OneToOne(() => PriceRange, {
+  @OneToOne(() => PriceRange, (price_range) => price_range.property, {
     cascade: true,
     eager: true,
   })
