@@ -13,6 +13,7 @@ import { AdminModule } from './admin/admin.module';
 import { Admin } from './admin/entities/admin.entity';
 
 import { ConfigModule } from '@nestjs/config';
+import { Landmark } from './property/entities/landmarks';
 
 @Module({
   imports: [
@@ -25,7 +26,7 @@ import { ConfigModule } from '@nestjs/config';
       password: process.env.PASSWORD,
       host: process.env.HOST,
       port: 6543,
-      entities: [Property, PriceRange, Content, Asset, Blog, Admin],
+      entities: [Property, PriceRange, Content, Asset, Blog, Admin, Landmark],
     }),
     GraphQLModule.forRoot<ApolloDriverConfig>({
       driver: ApolloDriver,

@@ -12,6 +12,7 @@ import {
 import { PriceRange } from './price_range.entity';
 import { Content } from '../../blogs/entities/content.entity';
 import { Asset } from './asset';
+import { Landmark } from './landmarks';
 
 @Entity()
 @ObjectType()
@@ -69,4 +70,13 @@ export class Property {
   @JoinColumn()
   @Field(() => [Asset], { nullable: true, defaultValue: [] })
   gallery: Asset[];
+
+  @OneToMany(() => Landmark, (landmark) => landmark.property, {
+    cascade: true,
+    eager: true,
+    nullable: true,
+  })
+  @JoinColumn()
+  @Field(() => [Landmark], { nullable: true, defaultValue: [] })
+  landmarks: Landmark[];
 }

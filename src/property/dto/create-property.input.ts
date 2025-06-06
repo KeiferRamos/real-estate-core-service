@@ -23,6 +23,18 @@ class CreateAssetInput {
 }
 
 @InputType()
+class CreateLandmarkInput {
+  @Field()
+  @IsString()
+  category: string;
+
+  @Field(() => [String])
+  @IsString({ each: true })
+  @IsArray()
+  sub_category: string[];
+}
+
+@InputType()
 class CreatePriceRangeInput {
   @Field()
   @IsNumber()
@@ -94,4 +106,8 @@ export class CreatePropertyInput {
   @Field(() => [CreateContentInput])
   @IsArray()
   contents: CreateContentInput[];
+
+  @Field(() => [CreateLandmarkInput])
+  @IsArray()
+  landmarks: CreateLandmarkInput[];
 }
