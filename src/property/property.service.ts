@@ -36,7 +36,6 @@ export class PropertyService {
     ...rest
   }: CreatePropertyInput) {
     try {
-      console.log(rest.contents, 'hello world');
       const mapNearbies = await this.propertyRepository.find({
         where: { id: In(nearbies) },
       });

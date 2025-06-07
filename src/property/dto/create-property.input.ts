@@ -9,6 +9,11 @@ import {
 
 @InputType()
 class CreateAssetInput {
+  @Field(() => String, { nullable: true })
+  @IsOptional()
+  @IsString()
+  id?: string;
+
   @Field()
   @IsString()
   image: string;
@@ -24,6 +29,11 @@ class CreateAssetInput {
 
 @InputType()
 class CreateLandmarkInput {
+  @Field(() => String, { nullable: true })
+  @IsOptional()
+  @IsString()
+  id?: string;
+
   @Field()
   @IsString()
   category: string;
@@ -36,6 +46,11 @@ class CreateLandmarkInput {
 
 @InputType()
 class CreatePriceRangeInput {
+  @Field(() => String, { nullable: true })
+  @IsOptional()
+  @IsString()
+  id?: string;
+
   @Field()
   @IsNumber()
   minimum: number;
@@ -47,6 +62,11 @@ class CreatePriceRangeInput {
 
 @InputType()
 export class CreateContentInput {
+  @Field(() => String, { nullable: true })
+  @IsOptional()
+  @IsString()
+  id?: string;
+
   @Field(() => [String], { nullable: true })
   @IsString({ each: true })
   @IsArray()
