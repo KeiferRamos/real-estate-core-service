@@ -7,8 +7,8 @@ import {
   PrimaryGeneratedColumn,
 } from 'typeorm';
 
-import { Blog } from '@src/blogs/entities/blog.entity';
-import { Property } from '@src/property/entities/property.entity';
+import { Blog } from '../../blogs/entities/blog.entity';
+import { Property } from '../../property/entities/property.entity';
 import { Asset } from './asset_entity';
 
 @Entity()

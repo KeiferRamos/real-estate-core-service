@@ -7,7 +7,7 @@ import {
   PrimaryGeneratedColumn,
 } from 'typeorm';
 
-import { Property } from '@src/property/entities/property.entity';
+import { Property } from '../../property/entities/property.entity';
 import { Content } from './content_entity';
 
 @Entity()

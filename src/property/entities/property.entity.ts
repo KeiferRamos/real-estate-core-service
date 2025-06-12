@@ -12,8 +12,8 @@ import {
 import { PriceRange } from './price_range.entity';
 
 import { Landmark } from './landmarks';
-import { Content } from '@src/media/entities/content_entity';
-import { Asset } from '@src/media/entities/asset_entity';
+import { Content } from '../../media/entities/content_entity';
+import { Asset } from '../../media/entities/asset_entity';
 
 @Entity()
 @ObjectType()

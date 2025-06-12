@@ -2,7 +2,7 @@ import { InputType, Int, Field } from '@nestjs/graphql';
 import {
   CreateAssetInput,
   CreateContentInput,
-} from '@src/media/dto/create-media.input';
+} from '../../media/dto/create-media.input';
 import {
   IsArray,
   IsNumber,
