@@ -1,7 +1,15 @@
 import { Field, ObjectType } from '@nestjs/graphql';
-import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
-import { Blog } from './blog.entity';
-import { Property } from '../../property/entities/property.entity';
+import {
+  Column,
+  Entity,
+  ManyToOne,
+  OneToMany,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
+
+import { Blog } from '@src/blogs/entities/blog.entity';
+import { Property } from '@src/property/entities/property.entity';
+import { Asset } from './asset_entity';
 
 @Entity()
 @ObjectType()
@@ -14,9 +22,13 @@ export class Content {
   @Field()
   content_type: string;
 
-  @Column('text', { array: true, nullable: true })
-  @Field(() => [String], { nullable: true })
-  gallery: string[];
+  @OneToMany(() => Asset, (asset) => asset.content, {
+    cascade: true,
+    nullable: true,
+    eager: true,
+  })
+  @Field(() => [Asset], { nullable: true })
+  gallery: Asset[];
 
   @Column({ nullable: true })
   @Field({ nullable: true })
@@ -28,5 +40,5 @@ export class Content {
   @ManyToOne(() => Property, (property) => property.contents, {
     onDelete: 'CASCADE',
   })
-  property: Blog;
+  property: Property;
 }

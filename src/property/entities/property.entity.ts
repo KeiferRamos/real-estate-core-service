@@ -10,9 +10,10 @@ import {
   PrimaryGeneratedColumn,
 } from 'typeorm';
 import { PriceRange } from './price_range.entity';
-import { Content } from '../../blogs/entities/content.entity';
-import { Asset } from './asset';
+
 import { Landmark } from './landmarks';
+import { Content } from '@src/media/entities/content_entity';
+import { Asset } from '@src/media/entities/asset_entity';
 
 @Entity()
 @ObjectType()

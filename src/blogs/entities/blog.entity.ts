@@ -1,4 +1,5 @@
 import { ObjectType, Field } from '@nestjs/graphql';
+import { Content } from '@src/media/entities/content_entity';
 import {
   Column,
   Entity,
@@ -6,7 +7,6 @@ import {
   OneToMany,
   PrimaryGeneratedColumn,
 } from 'typeorm';
-import { Content } from './content.entity';
 
 @Entity()
 @ObjectType()

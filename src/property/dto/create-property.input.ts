@@ -1,31 +1,15 @@
 import { InputType, Int, Field } from '@nestjs/graphql';
 import {
+  CreateAssetInput,
+  CreateContentInput,
+} from '@src/media/dto/create-media.input';
+import {
   IsArray,
   IsNumber,
   IsObject,
   IsOptional,
   IsString,
 } from 'class-validator';
-
-@InputType()
-class CreateAssetInput {
-  @Field(() => String, { nullable: true })
-  @IsOptional()
-  @IsString()
-  id?: string;
-
-  @Field()
-  @IsString()
-  image: string;
-
-  @Field()
-  @IsString()
-  tag: string;
-
-  @Field({ nullable: true })
-  @IsString()
-  category: string;
-}
 
 @InputType()
 class CreateLandmarkInput {
@@ -58,30 +42,6 @@ class CreatePriceRangeInput {
   @Field()
   @IsNumber()
   maximum: number;
-}
-
-@InputType()
-export class CreateContentInput {
-  @Field(() => String, { nullable: true })
-  @IsOptional()
-  @IsString()
-  id?: string;
-
-  @Field(() => [String], { nullable: true })
-  @IsString({ each: true })
-  @IsArray()
-  @IsOptional()
-  gallery?: string[];
-
-  @Field({ nullable: true })
-  @IsString()
-  @IsOptional()
-  richtext?: string;
-
-  @Field({ nullable: true })
-  @IsString()
-  @IsOptional()
-  content_type?: string;
 }
 
 @InputType()

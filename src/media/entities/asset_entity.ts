@@ -1,6 +1,14 @@
 import { Field, ObjectType } from '@nestjs/graphql';
-import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
-import { Property } from './property.entity';
+import {
+  Column,
+  Entity,
+  JoinColumn,
+  ManyToOne,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
+
+import { Property } from '@src/property/entities/property.entity';
+import { Content } from './content_entity';
 
 @Entity()
 @ObjectType()
@@ -25,4 +33,11 @@ export class Asset {
     onDelete: 'CASCADE',
   })
   gallery: Property;
+
+  @ManyToOne(() => Content, (content) => content.gallery, {
+    onDelete: 'CASCADE',
+    nullable: true,
+  })
+  @JoinColumn()
+  content: Content;
 }

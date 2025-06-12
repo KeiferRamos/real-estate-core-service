@@ -61,14 +61,22 @@
       {
         "richtext": "<h1>Discover Your Dream Home: Charming House &amp; Lot in Cabanatuan City, Nueva Ecija</h1><p>Welcome to our inviting house and lot nestled in Cabanatuan City, Nueva Ecija. With 3 bedrooms,4 bathrooms, and 20 square feet of space, this property combines comfort with convenience. The well-maintained interior exudes warmth, while the landscaped outdoor area offers a peaceful retreat. <br><br>Located near SM Nueva Ecija, residents enjoy easy access to essentials and entertainment. Schedule a viewing today and envision the possibilities of making this house and lot your new home!  <br><br></p>",
         "gallery": [
-          "https://images.unsplash.com/photo-1605146769289-440113cc3d00?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          {
+            "tag": "university school",
+            "image": "https://images.unsplash.com/photo-1605146769289-440113cc3d00?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            "category": "establishment"
+          }
         ],
         "content_type": "component-1"
       },
       {
         "richtext": "<h1>Discover Your Dream Home: Charming House &amp; Lot in Cabanatuan City, Nueva Ecija</h1><p>Welcome to our inviting house and lot nestled in Cabanatuan City, Nueva Ecija. With 3 bedrooms,4 bathrooms, and 20 square feet of space, this property combines comfort with convenience. The well-maintained interior exudes warmth, while the landscaped outdoor area offers a peaceful retreat. <br><br>Located near SM Nueva Ecija, residents enjoy easy access to essentials and entertainment. Schedule a viewing today and envision the possibilities of making this house and lot your new home!  <br><br></p>",
         "gallery": [
-          "https://images.unsplash.com/photo-1605146769289-440113cc3d00?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          {
+            "tag": "university school",
+            "image": "https://images.unsplash.com/photo-1605146769289-440113cc3d00?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            "category": "establishment"
+          }
         ],
         "content_type": "component-2"
       }
@@ -85,23 +93,43 @@
       {
         "richtext": "<h1>Discover Your Dream Home: Charming House &amp; Lot in Cabanatuan City, Nueva Ecija</h1><p>Welcome to our inviting house and lot nestled in Cabanatuan City, Nueva Ecija. With 3 bedrooms,4 bathrooms, and 20 square feet of space, this property combines comfort with convenience. The well-maintained interior exudes warmth, while the landscaped outdoor area offers a peaceful retreat. <br><br>Located near SM Nueva Ecija, residents enjoy easy access to essentials and entertainment. Schedule a viewing today and envision the possibilities of making this house and lot your new home!  <br><br></p>",
         "gallery": [
-          "https://images.unsplash.com/photo-1605146769289-440113cc3d00?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          {
+            "tag": "university school",
+            "image": "https://images.unsplash.com/photo-1605146769289-440113cc3d00?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            "category": "establishment"
+          }
         ],
         "content_type": "component-1"
       },
       {
         "richtext": null,
         "gallery": [
-          "https://images.unsplash.com/photo-1605146769289-440113cc3d00?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-          "https://images.unsplash.com/photo-1605146769289-440113cc3d00?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-          "https://images.unsplash.com/photo-1605146769289-440113cc3d00?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          {
+            "tag": "university school",
+            "image": "https://images.unsplash.com/photo-1605146769289-440113cc3d00?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            "category": "establishment"
+          },
+          {
+            "tag": "university school",
+            "image": "https://images.unsplash.com/photo-1605146769289-440113cc3d00?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            "category": "establishment"
+          },
+          {
+            "tag": "university school",
+            "image": "https://images.unsplash.com/photo-1605146769289-440113cc3d00?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            "category": "establishment"
+          }
         ],
         "content_type": "component-3"
       },
       {
         "richtext": null,
         "gallery": [
-          "https://images.unsplash.com/photo-1605146769289-440113cc3d00?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          {
+            "tag": "university school",
+            "image": "https://images.unsplash.com/photo-1605146769289-440113cc3d00?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            "category": "establishment"
+          }
         ],
         "content_type": "component-4"
       }

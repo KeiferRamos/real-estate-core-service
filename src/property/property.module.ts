@@ -4,8 +4,6 @@ import { PropertyResolver } from './property.resolver';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Property } from './entities/property.entity';
 import { PriceRange } from './entities/price_range.entity';
-import { Content } from '../blogs/entities/content.entity';
-import { Asset } from './entities/asset';
 import { JwtModule } from '@nestjs/jwt';
 import { ConfigModule } from '@nestjs/config';
 
@@ -18,7 +16,7 @@ import { ConfigModule } from '@nestjs/config';
         expiresIn: '8h',
       },
     }),
-    TypeOrmModule.forFeature([Property, PriceRange, Content, Asset]),
+    TypeOrmModule.forFeature([Property, PriceRange]),
   ],
   providers: [PropertyResolver, PropertyService],
 })
