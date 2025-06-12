@@ -23,7 +23,7 @@ export class Asset {
 
   @Column()
   @Field()
-  image: string;
+  url: string;
 
   @Column({ nullable: true })
   @Field()

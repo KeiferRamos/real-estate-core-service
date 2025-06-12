@@ -10,7 +10,7 @@ export class CreateAssetInput {
 
   @Field()
   @IsString()
-  image: string;
+  url: string;
 
   @Field()
   @IsString()
