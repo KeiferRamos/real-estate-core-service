@@ -18,6 +18,10 @@ export class Content {
   @Field()
   id: string;
 
+  @Column({ nullable: true })
+  @Field({ nullable: true, defaultValue: 0 })
+  order: number;
+
   @Column()
   @Field()
   content_type: string;

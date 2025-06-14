@@ -28,6 +28,7 @@ import { Asset } from './media/entities/asset_entity';
       host: process.env.HOST,
       port: 6543,
       entities: [Property, PriceRange, Content, Asset, Blog, Admin, Landmark],
+      synchronize: true,
     }),
     GraphQLModule.forRoot<ApolloDriverConfig>({
       driver: ApolloDriver,
