@@ -29,6 +29,10 @@ export class Asset {
   @Field()
   category: string;
 
+  @Column({ nullable: true, default: 0 })
+  @Field({ nullable: true, defaultValue: 0 })
+  order?: number;
+
   @ManyToOne(() => Property, (property) => property.gallery, {
     onDelete: 'CASCADE',
   })

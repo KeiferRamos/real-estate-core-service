@@ -29,6 +29,9 @@ export class PropertyService {
         order: {
           contents: {
             order: 'ASC',
+            gallery: {
+              order: 'ASC',
+            },
           },
         },
       });

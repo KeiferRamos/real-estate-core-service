@@ -19,6 +19,10 @@ export class CreateAssetInput {
   @Field({ nullable: true })
   @IsString()
   category: string;
+
+  @Field({ nullable: true, defaultValue: 0 })
+  @IsNumber()
+  order?: number;
 }
 
 @InputType()
