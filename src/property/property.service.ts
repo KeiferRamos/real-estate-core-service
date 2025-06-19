@@ -40,21 +40,9 @@ export class PropertyService {
     }
   }
 
-  async create({
-    id,
-    nearby_properties: nearbies,
-    ...rest
-  }: CreatePropertyInput) {
+  async create(createProperty: CreatePropertyInput) {
     try {
-      const mapNearbies = await this.propertyRepository.find({
-        where: { id: In(nearbies) },
-      });
-
-      return this.propertyRepository.save({
-        id,
-        nearby_properties: mapNearbies,
-        ...rest,
-      });
+      return this.propertyRepository.save(createProperty);
     } catch (error) {
       throw new BadRequestException(error);
     }

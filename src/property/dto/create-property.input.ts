@@ -75,10 +75,6 @@ export class CreatePropertyInput {
   @IsString()
   status: string;
 
-  @Field(() => [String])
-  @IsArray()
-  nearby_properties: string[];
-
   @Field(() => CreatePriceRangeInput)
   @IsObject()
   price_range: CreatePriceRangeInput;

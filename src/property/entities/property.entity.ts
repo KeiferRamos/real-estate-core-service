@@ -58,11 +58,6 @@ export class Property {
   @Field(() => [Content], { defaultValue: [], nullable: true })
   contents: Content[];
 
-  @ManyToMany(() => Property)
-  @JoinTable()
-  @Field(() => [Property], { nullable: true, defaultValue: [] })
-  nearby_properties: Property[];
-
   @OneToMany(() => Asset, (asset) => asset.gallery, {
     cascade: true,
     eager: true,
