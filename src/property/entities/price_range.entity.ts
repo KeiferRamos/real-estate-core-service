@@ -11,11 +11,11 @@ export class PriceRange {
 
   @Column()
   @Field()
-  minimum: number;
+  minimum: string;
 
   @Column()
   @Field()
-  maximum: number;
+  maximum: string;
 
   @OneToOne(() => Property, (property) => property.price_range, {
     onDelete: 'SET NULL',

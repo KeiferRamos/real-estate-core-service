@@ -37,11 +37,11 @@ class CreatePriceRangeInput {
 
   @Field()
   @IsNumber()
-  minimum: number;
+  minimum: string;
 
   @Field()
   @IsNumber()
-  maximum: number;
+  maximum: string;
 }
 
 @InputType()
