@@ -13,9 +13,7 @@ export class PropertyService {
 
   findAll() {
     try {
-      return this.propertyRepository.find({
-        relations: ['nearby_properties'],
-      });
+      return this.propertyRepository.find();
     } catch (error) {
       throw new BadRequestException(error);
     }
@@ -25,7 +23,7 @@ export class PropertyService {
     try {
       return this.propertyRepository.findOne({
         where: { id },
-        relations: ['nearby_properties'],
+
         order: {
           contents: {
             order: 'ASC',
