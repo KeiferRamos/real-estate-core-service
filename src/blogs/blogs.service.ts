@@ -18,8 +18,8 @@ export class BlogsService {
     return this.blogRepository.find();
   }
 
-  findOne(id: string) {
-    return this.blogRepository.findBy({ id });
+  async findOne(id: string) {
+    return this.blogRepository.findOneBy({ id });
   }
 
   async remove(id: string) {
